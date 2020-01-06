@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+{% block content %}
+  <br><h1 style="font-family:impact; font-size:300%; color:green; text-align:center;"><strong>Download Website Online!</strong></h1><br>
+  <p style="font-size:150%; text-align:center;">Simply enter the URL of the website to download.</p>
+  <p style="text-align:center;">Rest assured that as written on the <a href="/privacy-policy">privacy policy</a>, this website stores absolutely no data at all!</p><br>
+
+  <!-- search form -->
+  <form action="/results" method="post" style="text-align:center;">
+    <input placeholder="Example: http://scanme.nmap.org" type="text" name="website"></input>&nbsp;&nbsp;&nbsp;
+    <input class="btn auto-track" type="submit" style="font-weight:bold" value="Download Website" onclick="makeLoaderVisible()"></input><br><br>
+    {% if message is defined %}
+      <p style="font-size:120%; color:red;">{{ message }}</p>
+    {% endif %}
+  </form>
+
+  <style>
+    input[type=text], select, textarea { width: 50%; padding: 7px; }
+    input[type=submit] { background-color: green; color: white; width: 15%; padding: 10px; }
+  </style>
+
+  <!-- after pressing "Download Website" button, the function to make loading animation visible. -->
+  <script>
+    function makeLoaderVisible()
+    {
+      loader=document.getElementById('loader');
+      loader.style.visibility='visible';
+      loader.style.display='block';
+	  
+	  loaderText=document.getElementById('loader text');
+      loaderText.style.visibility='visible';
+      loaderText.style.display='block';
+    }
+  </script>
+
+  <!-- loading animation -->
+  <center><div class="loader" id="loader" style="visibility: hidden; display: none"></div></center><br>
+  <style>
+    .loader {
+      border: 16px solid #f3f3f3; /* Light grey */
+      border-top: 16px solid green;
+      border-bottom: 16px solid green;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      animation: spin 2s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+  <center><p id="loader text" style="visibility: hidden; display: none; color: green">Depending on the size of the website, it may take a few seconds or minutes to copy.<p>
+
+  <p id="about"></p><br><br><br>
+  <h2 style="color:green"><strong>About</strong></h2><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p style="font-size:150%;">This website is a free service that copies websites online using HTTrack and allows the copies to be downloaded. This website is designed to assist non-technical Internet users who wish to easily save websites to view them when the websites are down or Internet access is gone.</p>
+
+  <p id="faq"></p><br><br>
+  <h2 style="color:green"><strong>FAQ</strong></h2><br>
+  <p style="font-size:150%;"><strong>Question: Will my IP address or the website I download be recorded?</strong></p>
+  <p style="font-size:150%;">Answer: No, this website does not store any kind of personal information whatsoever. Please check out the privacy policy on this link: <a href="/privacy-policy">Privacy Policy</a></p>
+  <p style="font-size:150%;"><strong>Question: Will copying websites harm them?</strong></p>
+  <p style="font-size:150%;">Answer: No, copying websites through this copier online will not damage the websites.</p>
+  <p style="font-size:150%;"><strong>Question: What does this use to copy other websites?</strong></p>
+  <p style="font-size:150%;">Answer: This website uses a website copier named HTTrack. Read more by clicking on this link: <a href="https://github.com/xroche/httrack">HTTrack</a></p>
+  <p style="font-size:150%;"><strong>Question: How can I contact this website's owner?</strong></p>
+  <p style="font-size:150%;">Answer: The owner can be contacted through the contact form on this link: <a href="/contact">Contact</a></p></p>
+{% endblock content %}

@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+    <br><h1>{{ header }}</h1><br><br>
+	<p style="font-size:150%; text-align:center;">The size of the copy's ZIP file is {{ size }}.</p><br>
+	
+	<!-- download="Copied Website ZIP File" -->
+	<center><a href="copied_websites/{{ websiteFilename }}.zip" download="Copied Website ZIP File"><button class="btn" class="fa fa-download">Download the ZIP File</button></a></center>
+	<style>
+	  .btn {
+            background-color: Green;
+            border: none;
+            color: white;
+            padding: 12px 30px;
+            cursor: pointer;
+            font-size: 20px;
+          }
+
+	  /* Darker background on mouse-over */
+	  .btn:hover {
+	    background-color: DarkGreen;
+	  }
+	</style>
+	
+    <br><br><br><br>
+	<p style="font-size:150%; text-align:center;">If this is not the website you wanted, please make sure that</p>
+	<p style="font-size:150%; text-align:center;">the URL is valid, has no typo, and has correct protocol ID (http:// or https://).</p>
+{% endblock content %}
